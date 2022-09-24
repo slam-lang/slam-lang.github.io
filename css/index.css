@@ -1,0 +1,64 @@
+body {
+  background-color: #D9A066;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  color: #663931;
+  font-family: "Nova Square", sans-serif;
+}
+
+.nav {
+  padding: 1rem 0rem;
+  background-color: #EEC39A;
+  height: 3rem;
+  flex: initial;
+}
+
+.nav-container {
+  width: 80%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.nav-links {
+  margin-left: auto;
+}
+
+a, a.visited {
+  color: #663931;
+  font-size: 3rem;
+}
+
+img.nav-logo {
+  display: block;
+  max-height: 100%;
+}
+
+.header {
+  background-color: #EEC39A;
+}
+
+img.logo {
+  display: block;
+  max-width: 80%;
+  margin: auto;
+}
+
+.content {
+  padding: 3rem;
+}
+
+h1 {
+  max-width: 60%;
+  text-align: center;
+  margin: auto;
+  padding: 1rem;
+}
+
+p {
+  max-width: 60%;
+  margin: auto;
+}
