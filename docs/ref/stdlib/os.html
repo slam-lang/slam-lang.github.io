@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Webpage for slam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slam Lang</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Square">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body> 
+    <div class="nav">
+      <div class="nav-container">
+        <a class="nav-logo" href="/">
+          <img class="nav-logo" src="/images/logo.png"></img>
+        </a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/docs">Docs</a>
+          <a href="http://github.com/slam-lang">Github</a>
+        </div>
+      </div>
+    </div>
+    
+    <h1 class="title">
+      stdlib/os.slm
+    </h1>
+    <div class="content">
+      <div class="side">
+        <a href="/">Home</a>
+      </div>
+      <div class="docs">
+        <h1 id="sysc">
+          class sysc
+          <span class="small">
+            SIZE: 0b
+          </span>
+        </h1>
+        <p>
+          Stores syscall values
+        </p>
+                <h1 id="fm">
+          class fm
+          <span class="small">
+            SIZE: 0b
+          </span>
+        </h1>
+        <p>
+          Stores file mode values
+        </p>
+                <h1 id="time">
+          class time
+          <span class="small">
+            SIZE: 16b
+          </span>
+        </h1>
+        <p>
+          Stores a time
+        </p>
+                <h1 id="sec">
+          prop time.sec
+          <span class="small">
+            SIZE: 8b
+            POS: 0b
+          </span>
+        </h1>
+        <p>
+          The seconds
+        </p>
+                <h1 id="nsec">
+          prop time.nsec
+          <span class="small">
+            SIZE: 8b
+            POS: 8b
+          </span>
+        </h1>
+        <p>
+          The nano-seconds
+        </p>
+                <h1 id="statresult">
+          class statresult
+          <span class="small">
+            SIZE: 144b
+          </span>
+        </h1>
+        <p>
+          stores the result of a stat evaulation
+        </p>
+                <h1 id="dev">
+          prop statresult.dev
+          <span class="small">
+            SIZE: 8b
+            POS: 0b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="ino">
+          prop statresult.ino
+          <span class="small">
+            SIZE: 8b
+            POS: 8b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="nlink">
+          prop statresult.nlink
+          <span class="small">
+            SIZE: 8b
+            POS: 16b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="mode">
+          prop statresult.mode
+          <span class="small">
+            SIZE: 4b
+            POS: 24b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="uid">
+          prop statresult.uid
+          <span class="small">
+            SIZE: 4b
+            POS: 28b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="gid">
+          prop statresult.gid
+          <span class="small">
+            SIZE: 4b
+            POS: 32b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="_">
+          prop statresult._
+          <span class="small">
+            SIZE: 4b
+            POS: 36b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="rdev">
+          prop statresult.rdev
+          <span class="small">
+            SIZE: 8b
+            POS: 40b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="size">
+          prop statresult.size
+          <span class="small">
+            SIZE: 8b
+            POS: 48b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="blksize">
+          prop statresult.blksize
+          <span class="small">
+            SIZE: 8b
+            POS: 56b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="blocks">
+          prop statresult.blocks
+          <span class="small">
+            SIZE: 8b
+            POS: 64b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="_">
+          prop statresult._
+          <span class="small">
+            SIZE: 24b
+            POS: 72b
+          </span>
+        </h1>
+        <p>
+          
+        </p>
+                <h1 id="os">
+          class os
+          <span class="small">
+            SIZE: 0b
+          </span>
+        </h1>
+        <p>
+          A container for os related procs
+        </p>
+                <h1 id="fork">
+          proc os.fork
+          <span class="small">
+            START: 0 RET: 1
+          </span>
+        </h1>
+        <p>
+          Forks the current process
+        </p>
+                <h1 id="execcmd">
+          proc os.execcmd
+          <span class="small">
+            START: 1 RET: 0
+          </span>
+        </h1>
+        <p>
+          Runs a command silently
+        </p>
+                <h1 id="execcmdloud">
+          proc os.execcmdloud
+          <span class="small">
+            START: 1 RET: 0
+          </span>
+        </h1>
+        <p>
+          Runs a command
+        </p>
+                <h1 id="execcmdecho">
+          proc os.execcmdecho
+          <span class="small">
+            START: 1 RET: 0
+          </span>
+        </h1>
+        <p>
+          Logs then runs a command silently
+        </p>
+                <h1 id="execcmdecholoud">
+          proc os.execcmdecholoud
+          <span class="small">
+            START: 1 RET: 0
+          </span>
+        </h1>
+        <p>
+          Logs then runs a command
+        </p>
+                <h1 id="args">
+          proc os.args
+          <span class="small">
+            START: 1 RET: 1
+          </span>
+        </h1>
+        <p>
+          Gets the nth argument
+        </p>
+                <h1 id="env">
+          proc os.env
+          <span class="small">
+            START: 1 RET: 1
+          </span>
+        </h1>
+        <p>
+          Gets an environmental var, returns NULL if it dosent exist
+        </p>
+              </div>
+    </div>
+  </body>
+</html>

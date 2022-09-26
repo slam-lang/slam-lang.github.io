@@ -25,12 +25,17 @@ body {
 
 .nav-links {
   margin-left: auto;
+  font-size: 3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  padding: 0.5rem;
 }
 
 a, a.visited {
   color: #663931;
-  font-size: 3rem;
-  padding-left: 3rem;
+  text-align: center;
 }
 
 .nav-logo {
@@ -50,10 +55,11 @@ img.logo {
 
 .content {
   padding: 3rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
 h1 {
-  max-width: 60%;
   text-align: center;
   margin: auto;
   padding: 1rem;
@@ -61,8 +67,10 @@ h1 {
 
 h2 {
   text-align: center;
-  max-width: 60%;
-  margin: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .warn {
@@ -70,4 +78,58 @@ h2 {
   max-width: 60%;
   margin: auto;
   color: #C33231;
+}
+
+.hcontainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  grid-auto-flow: row;
+  max-width: 62rem;
+  margin: auto;
+}
+
+.hitem {
+  width: 20rem;
+  background-color: #EEC39A;
+  height: 15rem;
+  border-radius: 1.5rem;
+  border: 0.25rem solid #663931;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hitem h2 {
+  min-width: 100%;
+  border-bottom: 0.25rem solid #663931;
+}
+
+h1.title {
+  font-size: 5rem;
+  min-width: 100%;
+  max-width: 100%;
+  background-color: #EEC39A;
+}
+
+.side {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.docs {
+  width: 70%;
+  display: inline-block;
+  border-left: 0.25rem solid #653931;
+}
+
+.docs * {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.small {
+  font-size: 1rem;
+  padding: 0;
 }

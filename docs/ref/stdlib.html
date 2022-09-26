@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Webpage for slam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slam Lang</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Square">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body> 
+    <div class="nav">
+      <div class="nav-container">
+        <a class="nav-logo" href="/">
+          <img class="nav-logo" src="/images/logo.png"></img>
+        </a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/docs">Docs</a>
+          <a href="http://github.com/slam-lang">Github</a>
+        </div>
+      </div>
+    </div>
+    
+    <h1 class="title">
+      stdlib.slm
+    </h1>
+    <div class="content">
+      <div class="side">
+        <a href="/">Home</a>
+      </div>
+      <div class="docs">
+        <p>
+        Stdlib is a assortment of basic utilities to speed up general life in slam.
+        </p>        <h1 id="bool">
+          class bool
+          <span class="small">
+            SIZE: 1b
+          </span>
+        </h1>
+        <p>
+          A boolean value
+        </p>
+                <h1 id="cstr">
+          class cstr
+          <span class="small">
+            SIZE: 0b
+          </span>
+        </h1>
+        <p>
+          A string compatible with c, meaning it is NULL terminated
+        </p>
+                <h1 id="len">
+          proc cstr.len
+          <span class="small">
+            START: 1 RET: 1
+          </span>
+        </h1>
+        <p>
+          Returns the length of the string
+        </p>
+                <h1 id="print">
+          proc cstr.print
+          <span class="small">
+            START: 1 RET: 0
+          </span>
+        </h1>
+        <p>
+          Prints the string to STDOUT
+        </p>
+                <h1 id="cr">
+          proc cstr.cr
+          <span class="small">
+            START: 0 RET: 0
+          </span>
+        </h1>
+        <p>
+          Prints a new line to STDOUT
+        </p>
+                <h1 id="println">
+          proc cstr.println
+          <span class="small">
+            START: 1 RET: 0
+          </span>
+        </h1>
+        <p>
+          Prints the string followed by a new line to STDOUT
+        </p>
+                <h1 id="eq">
+          proc cstr.eq
+          <span class="small">
+            START: 2 RET: 1
+          </span>
+        </h1>
+        <p>
+          Returns true if the 2 top strings are equal
+        </p>
+                <h1 id="copy">
+          proc cstr.copy
+          <span class="small">
+            START: 2 RET: 2
+          </span>
+        </h1>
+        <p>
+          Copy a string from a pointer to another
+        </p>
+                <h1 id="last">
+          proc cstr.last
+          <span class="small">
+            START: 1 RET: 1
+          </span>
+        </h1>
+        <p>
+          Returns the last character of a string
+        </p>
+                <h1 id="clear">
+          proc cstr.clear
+          <span class="small">
+            START: 1 RET: 1
+          </span>
+        </h1>
+        <p>
+          Fills a string with \0
+        </p>
+                <h1 id="isnum">
+          proc cstr.isnum
+          <span class="small">
+            START: 1 RET: 1
+          </span>
+        </h1>
+        <p>
+          Returns true if a string is a number
+        </p>
+                <h1 id="tonum">
+          proc cstr.tonum
+          <span class="small">
+            START: 1 RET: 1
+          </span>
+        </h1>
+        <p>
+          Parses a string to a int, quits on failure
+        </p>
+                <h1 id="split">
+          proc cstr.split
+          <span class="small">
+            START: 3 RET: 2
+          </span>
+        </h1>
+        <p>
+          Splits a string on a deliminator
+        </p>
+                <h1 id="int">
+          class int
+          <span class="small">
+            SIZE: 8b
+          </span>
+        </h1>
+        <p>
+          Stores a integer
+        </p>
+                <h1 id="data">
+          prop int.data
+          <span class="small">
+            SIZE: 8b
+            POS: 0b
+          </span>
+        </h1>
+        <p>
+          The integers value
+        </p>
+                <h1 id="cstr">
+          proc int.cstr
+          <span class="small">
+            START: 1 RET: 1
+          </span>
+        </h1>
+        <p>
+          Converts a int to a cstr
+        </p>
+                <h1 id="cstrhex">
+          proc int.cstrhex
+          <span class="small">
+            START: 1 RET: 1
+          </span>
+        </h1>
+        <p>
+          Converts a int to a cstr with hexadecimal
+        </p>
+                <h1 id="print">
+          proc int.print
+          <span class="small">
+            START: 1 RET: 0
+          </span>
+        </h1>
+        <p>
+          Prints a int to STDOUT
+        </p>
+                <h1 id="printhex">
+          proc int.printhex
+          <span class="small">
+            START: 1 RET: 0
+          </span>
+        </h1>
+        <p>
+          Prints a int in base 16 to STDOUT
+        </p>
+              </div>
+    </div>
+  </body>
+</html>
