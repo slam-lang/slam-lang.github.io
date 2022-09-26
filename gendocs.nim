@@ -39,18 +39,35 @@ proc gen_header(title: string): string = &"""
       <div class="side">
 """
 
+var classPos: int
+var className: string
+
 proc gen_sidebar(input: seq[inputLine]): string =
   result = """
-        <a href="/">Home</a>
+        <h1>Contents</h1>
+        <ul>
 """
+  for l in input:
+    var name = l.value.split(" ")[0]
+    case l.kind
+    of "class":
+      className = name & "."
+      result &= &"""
+      <li><a href="#{name}">{name}</a></li>
+"""
+    of "proc":
+      result &= &"""
+      <li><a href="#{name}">{className}{name}</a></li>
+"""
+  result &= """
+  </ul>
+"""
+
 
 proc gen_mid(): string = """
       </div>
       <div class="docs">
 """
-
-var classPos: int
-var className: string
 
 proc gen_content(input: seq[inputLine]): string =
   for l in input:
@@ -88,13 +105,13 @@ proc gen_content(input: seq[inputLine]): string =
       classPos += parseInt(size)
 
       result &= &"""
-        <h1 id="{name}">
+        <h2 id="{name}">
           prop {className}{name}
           <span class="small">
             SIZE: {size}b
             POS: {value}b
           </span>
-        </h1>
+        </h2>
         <p>
           {desc}
         </p>

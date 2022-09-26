@@ -27,7 +27,21 @@
     </h1>
     <div class="content">
       <div class="side">
-        <a href="/">Home</a>
+        <h1>Contents</h1>
+        <ul>
+      <li><a href="#sysc">sysc</a></li>
+      <li><a href="#fm">fm</a></li>
+      <li><a href="#time">time</a></li>
+      <li><a href="#statresult">statresult</a></li>
+      <li><a href="#os">os</a></li>
+      <li><a href="#fork">os.fork</a></li>
+      <li><a href="#execcmd">os.execcmd</a></li>
+      <li><a href="#execcmdloud">os.execcmdloud</a></li>
+      <li><a href="#execcmdecho">os.execcmdecho</a></li>
+      <li><a href="#execcmdecholoud">os.execcmdecholoud</a></li>
+      <li><a href="#args">os.args</a></li>
+      <li><a href="#env">os.env</a></li>
+  </ul>
       </div>
       <div class="docs">
         <h1 id="sysc">
@@ -57,23 +71,23 @@
         <p>
           Stores a time
         </p>
-                <h1 id="sec">
+                <h2 id="sec">
           prop time.sec
           <span class="small">
             SIZE: 8b
             POS: 0b
           </span>
-        </h1>
+        </h2>
         <p>
           The seconds
         </p>
-                <h1 id="nsec">
+                <h2 id="nsec">
           prop time.nsec
           <span class="small">
             SIZE: 8b
             POS: 8b
           </span>
-        </h1>
+        </h2>
         <p>
           The nano-seconds
         </p>
@@ -86,123 +100,123 @@
         <p>
           stores the result of a stat evaulation
         </p>
-                <h1 id="dev">
+                <h2 id="dev">
           prop statresult.dev
           <span class="small">
             SIZE: 8b
             POS: 0b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="ino">
+                <h2 id="ino">
           prop statresult.ino
           <span class="small">
             SIZE: 8b
             POS: 8b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="nlink">
+                <h2 id="nlink">
           prop statresult.nlink
           <span class="small">
             SIZE: 8b
             POS: 16b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="mode">
+                <h2 id="mode">
           prop statresult.mode
           <span class="small">
             SIZE: 4b
             POS: 24b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="uid">
+                <h2 id="uid">
           prop statresult.uid
           <span class="small">
             SIZE: 4b
             POS: 28b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="gid">
+                <h2 id="gid">
           prop statresult.gid
           <span class="small">
             SIZE: 4b
             POS: 32b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="_">
+                <h2 id="_">
           prop statresult._
           <span class="small">
             SIZE: 4b
             POS: 36b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="rdev">
+                <h2 id="rdev">
           prop statresult.rdev
           <span class="small">
             SIZE: 8b
             POS: 40b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="size">
+                <h2 id="size">
           prop statresult.size
           <span class="small">
             SIZE: 8b
             POS: 48b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="blksize">
+                <h2 id="blksize">
           prop statresult.blksize
           <span class="small">
             SIZE: 8b
             POS: 56b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="blocks">
+                <h2 id="blocks">
           prop statresult.blocks
           <span class="small">
             SIZE: 8b
             POS: 64b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
-                <h1 id="_">
+                <h2 id="_">
           prop statresult._
           <span class="small">
             SIZE: 24b
             POS: 72b
           </span>
-        </h1>
+        </h2>
         <p>
           
         </p>
@@ -276,7 +290,7 @@
           </span>
         </h1>
         <p>
-          Gets an environmental var, returns NULL if it dosent exist
+          Goets an environmental var, returns NULL if it dosent exist
         </p>
               </div>
     </div>

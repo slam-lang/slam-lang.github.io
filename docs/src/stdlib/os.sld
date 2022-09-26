@@ -25,4 +25,4 @@ proc execcmdloud 1 0 Runs a command
 proc execcmdecho 1 0 Logs then runs a command silently
 proc execcmdecholoud 1 0 Logs then runs a command
 proc args 1 1 Gets the nth argument
-proc env 1 1 Gets an environmental var, returns NULL if it dosent exist
+proc env 1 1 Goets an environmental var, returns NULL if it dosent exist
