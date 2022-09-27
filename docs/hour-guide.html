@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/path/to/styles/default.min.css">
+    <script src="/path/to/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <title>Slam Lang</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Webpage for slam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Square">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body> 
+    <div class="nav">
+      <div class="nav-container">
+        <a href="/">
+          <img class="nav-logo" src="/images/logo.png"></img>
+        </a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/docs">Docs</a>
+          <a href="http://github.com/slam-lang">Github</a>
+        </div>
+      </div>
+    </div>
+    <h1 class="title">
+      Learn slam in an hour.
+    </h1>
+    <div class="content">
+    <h1>Basics</h1>
+    <pre><code class="language-slam">{This is needed for the cstr class}
+inc stdlib.slm
+
+{This prints hello world}
+proc main 0 0
+  "Hello World" {Push hello world onto the stack}
+  (cstr.println) {print the top of the stack}
+
+  ret
+end
+
+{
+Slam uses Reverse polish notation for math
+instead of writing a operation b you
+run a b operation, so for example 4 + 3 would
+be
+}
+
+4 3 +
+(int.print)
+
+{
+subtraction has an order still, you need to put the
+2nd parameter second, 4 - 3 would be
+}
+4 3 -
+(int.print)
+
+{
+slam by default has no division operation
+instead it has /% which pushes the result and the
+remainder to the stack. Though there are shortcuts
+in stdlib.slm that allow you to / and % individually.
+}
+100 10 /%
+(int.print)
+(int.print)
+
+{
+this defines a proc named foo, it will
+have access to the top 2 items in the
+stack. And when it returns itll have 1
+item in place of these 2.
+}
+proc foo 2 1
+  {remove the top item in the stack}
+  disc
+  
+  ret
+end
+
+{
+an operation proc (which you'll see
+the effects of in Calling procs) can
+be defined by putting the identifier
+oper before the name.
+}
+oper
+proc bar 0 0
+  
+  ret
+end
+
+{you can also do this on the same line}
+oper proc foo-op2 0 0
+
+  ret
+end
+
+{you can call a proc by wrapping it in parentheses}
+
+(foo)
+            
+{to call a operation proc just write its name}
+
+bar
+
+{
+A block is created by wrapping a sequence of
+operations in [], a block counts as one command.
+This is useful for if statements
+}
+[
+  (foo) bar
+]
+{
+due to limitations in the slam compiler,
+you cannot create a block inside a block.
+}
+
+{
+an if statement pops the last item on the stack
+if this item is 0 it skips the next command
+}
+100 10 /
+10 == if [
+  "10 / 100 is 10"
+]
+
+{
+the class keyword can be used to create a class
+}
+class barc
+  proc name 0 1
+    "bar"
+    ret
+  end
+  
+  proc inherit 0 0
+  
+    ret
+  end
+end
+
+{
+you can use the of keyword to make a class inherit
+from another
+}
+class fooc of barc
+  proc name 0 1
+    "foo"
+    ret
+  end
+end
+
+{items in a class are prefixed with classname.}
+(fooc.name) (cstr.println)
+(barc.name) (cstr.println)</code></pre>
+    <h1>Intrinsics</h1>
+    <pre><code class="language-slam">{
+Slam has functions that are built into the compiler
+these are called Intrinsics.
+}
+
+nop {this does nothing}
+1 {writing any number pushes it to the stack}
+disc {disc removes the top item from the stack}
+1 2 + {+ adds the top 2 items in the stack}
+disc
+1 2 . {. adds the top 2 items in the stack}
+disc
+1 2 - {- subtracts the top 2 items in the stack}
+disc
+1 2 ^ {^ xors the top 2 items in the stack}
+disc
+1 2 * {* multiplies the top 2 items in the stack}
+disc
+1 2 /% {/% divides the top 2 items in the stack and pushes the result and remainder}
+disc
+1 2 swap {swap swaps the top 2 items in the stack}
+disc disc
+1 copy {copy copies the top item on the stack}
+disc disc
+1 2 covr {covr copies the 2nd item in the stack}
+disc disc disc
+"lols" {writing a string pushes its address to the stack}
+copy read {read dereferences a pointer to an int}
+disc
+copy @ {@ dereferences a pointer to an int}
+disc
+copy readc {read dereferences a pointer to a char}
+disc
+{
+var makes a pointer to free memory with a size,
+when outside a proc it requires a name
+}
+var variable 8
+variable 21 putc disc {putc stores a char into an address}
+variable 23 put disc {put stores an int into an address}
+variable 23 = disc {= stores an int into an address}
+argv disc {argv gets the argv pointer}
+argc disc {argc gets the argument count}
+envp disc {envp gets the environment pointer}
+proc tempproc 1 1 {lambdas have to return the same amount as they take in}
+  1 -
+  ret {ret returns from the current proc}
+end
+
+2
+tempproc {you can push a lambda to the stack by not wrapping its name in paren}
+() {you can then call it with ()}
+disc
+
+2 2 != {!= returns 1 if the top 2 stack items are not equal}
+disc
+2 2 == {== returns 1 if the top 2 stack items are equal}
+disc
+2 2 > {== returns 1 if the top 2 stack items are >}
+disc
+2 2 < {== returns 1 if the top 2 stack items are <}
+disc
+2 2 && {&& ands the top 2 stack items}
+disc
+2 2 || {|| ors the top 2 stack items}
+disc
+2 2 ! {! inverts the first bit in the top stack item}
+disc
+{syscalls are called with sys0-6 based off arg count}
+
+0 quit {quit quits the program with the top of the stack as error}
+</code></pre>
+    </div>
+  </body>
+</html>
