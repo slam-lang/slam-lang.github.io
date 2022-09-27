@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Webpage for slam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slam Lang</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Square">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body> 
+    <div class="nav">
+      <div class="nav-container">
+        <a class="nav-logo" href="/">
+          <img class="nav-logo" src="/images/logo.png"></img>
+        </a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/docs">Docs</a>
+          <a href="http://github.com/slam-lang">Github</a>
+        </div>
+      </div>
+    </div>
+    
+    <h1 class="title">
+      stdlib/log.slm
+    </h1>
+    <div class="content">
+      <div class="side">
+        <h1>Contents</h1>
+        <ul>
+      <li><a href="#log">log</a></li>
+      <li><a href="#level">log.level</a></li>
+      <li><a href="#msg">log.msg</a></li>
+      <li><a href="#cat">log.cat</a></li>
+      <li><a href="#log">log.log</a></li>
+  </ul>
+      </div>
+      <div class="docs">
+        <h1 id="log">
+          class log
+          <span class="small">
+            SIZE: 13b
+          </span>
+        </h1>
+        <p>
+          used to log stuff to the console
+        </p>
+                <h2 id="Id">
+          prop log.Id
+          <span class="small">
+            SIZE: 8b
+            POS: 0b
+          </span>
+        </h2>
+        <p>
+          the current log id
+        </p>
+                <h2 id="Crit">
+          prop log.Crit
+          <span class="small">
+            SIZE: 1b
+            POS: 8b
+          </span>
+        </h2>
+        <p>
+          true if the log is critical
+        </p>
+                <h2 id="Hint">
+          prop log.Hint
+          <span class="small">
+            SIZE: 4b
+            POS: 9b
+          </span>
+        </h2>
+        <p>
+          the log hint
+        </p>
+                <h2 id="Mes">
+          prop log.Mes
+          <span class="small">
+            SIZE: 0b
+            POS: 13b
+          </span>
+        </h2>
+        <p>
+          the message to log
+        </p>
+                <h1 id="level">
+          proc log.level
+          <span class="small">
+            START: 2 RET: 0
+          </span>
+        </h1>
+        <p>
+          sets the log level
+        </p>
+                <h1 id="msg">
+          proc log.msg
+          <span class="small">
+            START: 2 RET: 0
+          </span>
+        </h1>
+        <p>
+          sets the log message and hint
+        </p>
+                <h1 id="cat">
+          proc log.cat
+          <span class="small">
+            START: 1 RET: 0
+          </span>
+        </h1>
+        <p>
+          appends a string to the end of the log
+        </p>
+                <h1 id="log">
+          proc log.log
+          <span class="small">
+            START: 0 RET: 0
+          </span>
+        </h1>
+        <p>
+          prints the current log message
+        </p>
+              </div>
+    </div>
+  </body>
+</html>
