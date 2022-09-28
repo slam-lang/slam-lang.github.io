@@ -50,7 +50,7 @@
   </ul>
       </div>
       <div class="docs">
-        <p>
+        <p class="desc">
         Stdlib is a assortment of basic utilities to speed up general life in slam.
         </p>        <h1 id="bool">
           class bool
@@ -58,173 +58,154 @@
             SIZE: 1b
           </span>
         </h1>
-        <p>
-          A boolean value
-        </p>
-                <h1 id="cstr">
+                <p class="desc">
+        A boolean value
+        </p>        <h1 id="cstr">
           class cstr
           <span class="small">
             SIZE: 0b
           </span>
         </h1>
-        <p>
-          A string compatible with c, meaning it is NULL terminated
-        </p>
-                <h1 id="len">
-          proc cstr.len
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          Returns the length of the string
-        </p>
-                <h1 id="print">
-          proc cstr.print
-          <span class="small">
-            START: 1 RET: 0
-          </span>
-        </h1>
-        <p>
-          Prints the string to STDOUT
-        </p>
-                <h1 id="cr">
-          proc cstr.cr
-          <span class="small">
-            START: 0 RET: 0
-          </span>
-        </h1>
-        <p>
-          Prints a new line to STDOUT
-        </p>
-                <h1 id="println">
-          proc cstr.println
-          <span class="small">
-            START: 1 RET: 0
-          </span>
-        </h1>
-        <p>
-          Prints the string followed by a new line to STDOUT
-        </p>
-                <h1 id="eq">
-          proc cstr.eq
-          <span class="small">
-            START: 2 RET: 1
-          </span>
-        </h1>
-        <p>
-          Returns true if the 2 top strings are equal
-        </p>
-                <h1 id="copy">
-          proc cstr.copy
-          <span class="small">
-            START: 2 RET: 2
-          </span>
-        </h1>
-        <p>
-          Copy a string from a pointer to another
-        </p>
-                <h1 id="last">
-          proc cstr.last
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          Returns the last character of a string
-        </p>
-                <h1 id="clear">
-          proc cstr.clear
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          Fills a string with \0
-        </p>
-                <h1 id="isnum">
-          proc cstr.isnum
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          Returns true if a string is a number
-        </p>
-                <h1 id="tonum">
-          proc cstr.tonum
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          Parses a string to a int, quits on failure
-        </p>
-                <h1 id="split">
-          proc cstr.split
-          <span class="small">
-            START: 3 RET: 2
-          </span>
-        </h1>
-        <p>
-          Splits a string on a deliminator
-        </p>
-                <h1 id="int">
+                <p class="desc">
+        A string compatible with c, meaning it is NULL terminated
+        </p>          <h2 id="len">
+            proc cstr.len
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                  <p class="desc">
+        Returns the length of the string
+        </p>          <h2 id="print">
+            proc cstr.print
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+                  <p class="desc">
+        Prints the string to STDOUT
+        </p>          <h2 id="cr">
+            proc cstr.cr
+            <span class="small">
+              START: 0 RET: 0
+            </span>
+          </h2>
+                  <p class="desc">
+        Prints a new line to STDOUT
+        </p>          <h2 id="println">
+            proc cstr.println
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+                  <p class="desc">
+        Prints the string followed by a new line to STDOUT
+        </p>          <h2 id="eq">
+            proc cstr.eq
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+                  <p class="desc">
+        Returns true if the 2 top strings are equal
+        </p>          <h2 id="copy">
+            proc cstr.copy
+            <span class="small">
+              START: 2 RET: 2
+            </span>
+          </h2>
+                  <p class="desc">
+        Copy a string from a pointer to another
+        </p>          <h2 id="last">
+            proc cstr.last
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                  <p class="desc">
+        Returns the last character of a string
+        </p>          <h2 id="clear">
+            proc cstr.clear
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                  <p class="desc">
+        Fills a string with \0
+        </p>          <h2 id="isnum">
+            proc cstr.isnum
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                  <p class="desc">
+        Returns true if a string is a number
+        </p>          <h2 id="tonum">
+            proc cstr.tonum
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                  <p class="desc">
+        Parses a string to a int, quits on failure
+        </p>          <h2 id="split">
+            proc cstr.split
+            <span class="small">
+              START: 3 RET: 2
+            </span>
+          </h2>
+                  <p class="desc">
+        Splits a string on a deliminator
+        </p>        <h1 id="int">
           class int
           <span class="small">
             SIZE: 8b
           </span>
         </h1>
-        <p>
-          Stores a integer
-        </p>
-                <h2 id="data">
+                <p class="desc">
+        Stores a integer
+        </p>        <h2 id="data">
           prop int.data
           <span class="small">
             SIZE: 8b
             POS: 0b
           </span>
         </h2>
-        <p>
-          The integers value
-        </p>
-                <h1 id="cstr">
-          proc int.cstr
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          Converts a int to a cstr
-        </p>
-                <h1 id="cstrhex">
-          proc int.cstrhex
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          Converts a int to a cstr with hexadecimal
-        </p>
-                <h1 id="print">
-          proc int.print
-          <span class="small">
-            START: 1 RET: 0
-          </span>
-        </h1>
-        <p>
-          Prints a int to STDOUT
-        </p>
-                <h1 id="printhex">
-          proc int.printhex
-          <span class="small">
-            START: 1 RET: 0
-          </span>
-        </h1>
-        <p>
-          Prints a int in base 16 to STDOUT
-        </p>
-              </div>
+                <p class="desc">
+        The integers value
+        </p>          <h2 id="cstr">
+            proc int.cstr
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                  <p class="desc">
+        Converts a int to a cstr
+        </p>          <h2 id="cstrhex">
+            proc int.cstrhex
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                  <p class="desc">
+        Converts a int to a cstr with hexadecimal
+        </p>          <h2 id="print">
+            proc int.print
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+                  <p class="desc">
+        Prints a int to STDOUT
+        </p>          <h2 id="printhex">
+            proc int.printhex
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+                  <p class="desc">
+        Prints a int in base 16 to STDOUT
+        </p>      </div>
     </div>
   </body>
 </html>

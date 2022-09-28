@@ -54,245 +54,245 @@
             SIZE: 16b
           </span>
         </h1>
-        <p>
-          stores a socket address
-        </p>
-                <h2 id="family">
+                <p class="desc">
+        stores a socket address
+        </p>        <h2 id="family">
           prop sockaddr.family
           <span class="small">
             SIZE: 2b
             POS: 0b
           </span>
         </h2>
-        <p>
-          the sockets family
-        </p>
-                <h2 id="port">
+                <p class="desc">
+        the sockets family
+        </p>        <h2 id="port">
           prop sockaddr.port
           <span class="small">
             SIZE: 2b
             POS: 2b
           </span>
         </h2>
-        <p>
-          the port the socket is attached to
-        </p>
-                <h2 id="addr">
+                <p class="desc">
+        the port the socket is attached to
+        </p>        <h2 id="addr">
           prop sockaddr.addr
           <span class="small">
             SIZE: 4b
             POS: 4b
           </span>
         </h2>
-        <p>
-          the address of the socket
-        </p>
-                <h2 id="misc">
+                <p class="desc">
+        the address of the socket
+        </p>        <h2 id="misc">
           prop sockaddr.misc
           <span class="small">
             SIZE: 8b
             POS: 8b
           </span>
         </h2>
-        <p>
-          filler data 
-        </p>
-                <h1 id="reset">
-          proc sockaddr.reset
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          resets the sockets value to zero
-        </p>
-                <h1 id="setfamily">
-          proc sockaddr.setfamily
-          <span class="small">
-            START: 2 RET: 1
-          </span>
-        </h1>
-        <p>
-          sets the family value of the socket
-        </p>
-                <h1 id="setaddr">
-          proc sockaddr.setaddr
-          <span class="small">
-            START: 2 RET: 1
-          </span>
-        </h1>
-        <p>
-          sets the address of the socket
-        </p>
-                <h1 id="setport">
-          proc sockaddr.setport
-          <span class="small">
-            START: 2 RET: 1
-          </span>
-        </h1>
-        <p>
-          sets the port of the socket
-        </p>
-                <h1 id="net">
+                <p class="desc">
+        filler data 
+        </p>          <h2 id="reset">
+            proc sockaddr.reset
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[sockaddr] =>  ptr[sockaddr]</h3>
+        <p class="desc">
+        resets the sockets value to zero
+        </p>          <h2 id="setfamily">
+            proc sockaddr.setfamily
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[sockaddr] int[family] =>  ptr[sockaddr]</h3>
+        <p class="desc">
+        sets the family value of the socket
+        </p>          <h2 id="setaddr">
+            proc sockaddr.setaddr
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[sockaddr] int[addr] =>  ptr[sockaddr]</h3>
+        <p class="desc">
+        sets the address of the socket
+        </p>          <h2 id="setport">
+            proc sockaddr.setport
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[sockaddr] int[port] =>  ptr[sockaddr]</h3>
+        <p class="desc">
+        sets the port of the socket
+        </p>        <h1 id="net">
           class net
           <span class="small">
             SIZE: 56b
           </span>
         </h1>
-        <p>
-          stores network data
-        </p>
-                <h2 id="fd">
+                <p class="desc">
+        stores network data
+        </p>        <h2 id="fd">
           prop net.fd
           <span class="small">
             SIZE: 8b
             POS: 0b
           </span>
         </h2>
-        <p>
-          the file descriptor
-        </p>
-                <h2 id="connfd">
+                <p class="desc">
+        the file descriptor
+        </p>        <h2 id="connfd">
           prop net.connfd
           <span class="small">
             SIZE: 8b
             POS: 8b
           </span>
         </h2>
-        <p>
-          the connection file descriptor
-        </p>
-                <h2 id="servaddr">
+                <p class="desc">
+        the connection file descriptor
+        </p>        <h2 id="servaddr">
           prop net.servaddr
           <span class="small">
             SIZE: 16b
             POS: 16b
           </span>
         </h2>
-        <p>
-          stores the servers address data
-        </p>
-                <h2 id="cliaddr">
+                <p class="desc">
+        stores the servers address data
+        </p>        <h2 id="cliaddr">
           prop net.cliaddr
           <span class="small">
             SIZE: 16b
             POS: 32b
           </span>
         </h2>
-        <p>
-          stores the clients address data
-        </p>
-                <h2 id="clilen">
+                <p class="desc">
+        stores the clients address data
+        </p>        <h2 id="clilen">
           prop net.clilen
           <span class="small">
             SIZE: 8b
             POS: 48b
           </span>
         </h2>
-        <p>
-          stores the length of the client
-        </p>
-                <h1 id="open">
-          proc net.open
-          <span class="small">
-            START: 2 RET: 1
-          </span>
-        </h1>
-        <p>
-          returns a new network object args are data and port
-        </p>
-                <h1 id="poll">
-          proc net.poll
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          waits for a client to connect to the network object and opens a connection 
-        </p>
-                <h1 id="read">
-          proc net.read
-          <span class="small">
-            START: 3 RET: 2
-          </span>
-        </h1>
-        <p>
-          reads the data from a client
-        </p>
-                <h1 id="write">
-          proc net.write
-          <span class="small">
-            START: 2 RET: 1
-          </span>
-        </h1>
-        <p>
-          writes data to a client
-        </p>
-                <h1 id="finish">
-          proc net.finish
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          closes a client connection
-        </p>
-                <h1 id="close">
-          proc net.close
-          <span class="small">
-            START: 1 RET: 0
-          </span>
-        </h1>
-        <p>
-          closes a network object
-        </p>
-                <h1 id="http">
+                <p class="desc">
+        stores the length of the client
+        </p>          <h2 id="open">
+            proc net.open
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[net] int[port] =>  ptr[net]</h3>
+        <p class="desc">
+        returns a new network object args are data and port
+        </p>          <h2 id="poll">
+            proc net.poll
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[net] =>  ptr[net]</h3>
+        <p class="desc">
+        waits for a client to connect to the network object and opens a connection 
+        </p>          <h2 id="read">
+            proc net.read
+            <span class="small">
+              START: 3 RET: 2
+            </span>
+          </h2>
+          <h3>
+ ptr[net] ptr[buffer] int[buffersize] =>  int[readbytes] ptr[net]</h3>
+        <p class="desc">
+        reads the data from a client
+        </p>          <h2 id="write">
+            proc net.write
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[net] ptr[buffer] =>  ptr[net]</h3>
+        <p class="desc">
+        writes data to a client
+        </p>          <h2 id="finish">
+            proc net.finish
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[net] =>  ptr[net]</h3>
+        <p class="desc">
+        closes a client connection
+        </p>          <h2 id="close">
+            proc net.close
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+          <h3>
+ ptr[net] => </h3>
+        <p class="desc">
+        closes a network object
+        </p>        <h1 id="http">
           class http
           <span class="small">
             SIZE: 32b
           </span>
         </h1>
-        <p>
-          a http response parser and maker
-        </p>
-                <h2 id="server">
+                <p class="desc">
+        a http response parser and maker
+        </p>        <h2 id="server">
           prop http.server
           <span class="small">
             SIZE: 32b
             POS: 0b
           </span>
         </h2>
-        <p>
-          the name of the server
-        </p>
-                <h1 id="setserver">
-          proc http.setserver
-          <span class="small">
-            START: 2 RET: 1
-          </span>
-        </h1>
-        <p>
-          sets the name of the server for a http object
-        </p>
-                <h1 id="getheader">
-          proc http.getheader
-          <span class="small">
-            START: 3 RET: 2
-          </span>
-        </h1>
-        <p>
-          gets a http header from a http object
-        </p>
-                <h1 id="parseurl">
-          proc http.parseurl
-          <span class="small">
-            START: 2 RET: 2
-          </span>
-        </h1>
-        <p>
-          gets the url of a http request
-        </p>
-              </div>
+                <p class="desc">
+        the name of the server
+        </p>          <h2 id="setserver">
+            proc http.setserver
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[http] ptr[servername] =>  ptr[http]</h3>
+        <p class="desc">
+        sets the name of the server for a http object
+        </p>          <h2 id="getheader">
+            proc http.getheader
+            <span class="small">
+              START: 3 RET: 2
+            </span>
+          </h2>
+          <h3>
+ ptr[http] int[resp] ptr[buffer] =>  ptr[http] ptr[buffer]</h3>
+        <p class="desc">
+        gets a http header from a http object
+        </p>          <h2 id="parseurl">
+            proc http.parseurl
+            <span class="small">
+              START: 2 RET: 2
+            </span>
+          </h2>
+          <h3>
+ ptr[http] ptr[buffer] =>  ptr[http] ptr[buffer]</h3>
+        <p class="desc">
+        gets the url of a http request
+        </p>      </div>
     </div>
   </body>
 </html>

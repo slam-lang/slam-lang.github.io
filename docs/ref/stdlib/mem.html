@@ -47,7 +47,7 @@
   </ul>
       </div>
       <div class="docs">
-        <p>
+        <p class="desc">
         Mem is full of helper functions related to memory management
         </p>        <h1 id="heapentry">
           class heapentry
@@ -55,9 +55,6 @@
             SIZE: 17b
           </span>
         </h1>
-        <p>
-          a helper for storing data in the heap
-        </p>
                 <h2 id="Addr">
           prop heapentry.Addr
           <span class="small">
@@ -65,9 +62,6 @@
             POS: 0b
           </span>
         </h2>
-        <p>
-          the address of the entry
-        </p>
                 <h2 id="Flags">
           prop heapentry.Flags
           <span class="small">
@@ -75,9 +69,6 @@
             POS: 8b
           </span>
         </h2>
-        <p>
-          some flags for the entry
-        </p>
                 <h2 id="Size">
           prop heapentry.Size
           <span class="small">
@@ -85,9 +76,6 @@
             POS: 9b
           </span>
         </h2>
-        <p>
-          the size of the entry
-        </p>
                 <h2 id="Data">
           prop heapentry.Data
           <span class="small">
@@ -95,136 +83,91 @@
             POS: 17b
           </span>
         </h2>
-        <p>
-          the actual entry data
-        </p>
-                <h1 id="isentry">
-          proc heapentry.isentry
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          returns true if the address is a heapentry
-        </p>
-                <h1 id="mem">
+                  <h2 id="isentry">
+            proc heapentry.isentry
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                  <h1 id="mem">
           class mem
           <span class="small">
             SIZE: 0b
           </span>
         </h1>
-        <p>
-          a wrapper for memory related procs
-        </p>
-                <h1 id="copy">
-          proc mem.copy
-          <span class="small">
-            START: 3 RET: 0
-          </span>
-        </h1>
-        <p>
-          copies x bytes from one location to another
-        </p>
-                <h1 id="eq">
-          proc mem.eq
-          <span class="small">
-            START: 3 RET: 1
-          </span>
-        </h1>
-        <p>
-          returns true of the next x bytes are equal
-        </p>
-                <h1 id="zero">
-          proc mem.zero
-          <span class="small">
-            START: 2 RET: 0
-          </span>
-        </h1>
-        <p>
-          sets the next x bytes to zero
-        </p>
-                <h1 id="heap">
+                  <h2 id="copy">
+            proc mem.copy
+            <span class="small">
+              START: 3 RET: 0
+            </span>
+          </h2>
+                    <h2 id="eq">
+            proc mem.eq
+            <span class="small">
+              START: 3 RET: 1
+            </span>
+          </h2>
+                    <h2 id="zero">
+            proc mem.zero
+            <span class="small">
+              START: 2 RET: 0
+            </span>
+          </h2>
+                  <h1 id="heap">
           class heap
           <span class="small">
             SIZE: 0b
           </span>
         </h1>
-        <p>
-          a wrapper for the heap
-        </p>
-                <h1 id="allocpage">
-          proc heap.allocpage
-          <span class="small">
-            START: 0 RET: 0
-          </span>
-        </h1>
-        <p>
-          DONT USE. allocates another page to the heap
-        </p>
-                <h1 id="init">
-          proc heap.init
-          <span class="small">
-            START: 0 RET: 0
-          </span>
-        </h1>
-        <p>
-          DONT USE. initializes the heap
-        </p>
-                <h1 id="map">
-          proc heap.map
-          <span class="small">
-            START: 0 RET: 0
-          </span>
-        </h1>
-        <p>
-          prints the heap to stdout
-        </p>
-                <h1 id="alloc">
-          proc heap.alloc
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          allocates x bytes in the heap and returns a pointer
-        </p>
-                <h1 id="zalloc">
-          proc heap.zalloc
-          <span class="small">
-            START: 1 RET: 1
-          </span>
-        </h1>
-        <p>
-          allocates x bytes in the heap sets them to zero and returns a pointer
-        </p>
-                <h1 id="free">
-          proc heap.free
-          <span class="small">
-            START: 1 RET: 0
-          </span>
-        </h1>
-        <p>
-          frees a pointer in the heap, quits on failure
-        </p>
-                <h1 id="tryfree">
-          proc heap.tryfree
-          <span class="small">
-            START: 1 RET: 0
-          </span>
-        </h1>
-        <p>
-          frees a pointer in the heap does nothing on failure
-        </p>
-                <h1 id="realloc">
-          proc heap.realloc
-          <span class="small">
-            START: 2 RET: 1
-          </span>
-        </h1>
-        <p>
-          resizes a pointer in the heap
-        </p>
-              </div>
+                  <h2 id="allocpage">
+            proc heap.allocpage
+            <span class="small">
+              START: 0 RET: 0
+            </span>
+          </h2>
+                    <h2 id="init">
+            proc heap.init
+            <span class="small">
+              START: 0 RET: 0
+            </span>
+          </h2>
+                    <h2 id="map">
+            proc heap.map
+            <span class="small">
+              START: 0 RET: 0
+            </span>
+          </h2>
+                    <h2 id="alloc">
+            proc heap.alloc
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                    <h2 id="zalloc">
+            proc heap.zalloc
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                    <h2 id="free">
+            proc heap.free
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+                    <h2 id="tryfree">
+            proc heap.tryfree
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+                    <h2 id="realloc">
+            proc heap.realloc
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+                </div>
     </div>
   </body>
 </html>

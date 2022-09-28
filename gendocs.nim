@@ -74,14 +74,13 @@ proc gen_content(input: seq[inputLine]): string =
     case l.kind
     of "desc":
       result &= &"""
-        <p>
+        <p class="desc">
         {l.value}
         </p>"""
 
     of "class":
       var name = l.value.split(" ")[0]
       var size = l.value.split(" ")[1]
-      var desc = l.value.split(" ")[2..^1].join(" ")
       classPos = 0
       className = name & "."
 
@@ -92,15 +91,21 @@ proc gen_content(input: seq[inputLine]): string =
             SIZE: {size}b
           </span>
         </h1>
-        <p>
-          {desc}
-        </p>
         """
+
+    of "args":
+      result &= &"<h3>\n"
+      for arg in l.value.split(" "):
+        if arg == ">":
+          result &= " => "
+          continue
+        result &= " "
+        result &= arg
+      result &= &"</h3>\n"
    
     of "prop":
       var name = l.value.split(" ")[0]
       var size = l.value.split(" ")[1]
-      var desc = l.value.split(" ")[2..^1].join(" ")
       var value = classPos
       classPos += parseInt(size)
 
@@ -112,28 +117,31 @@ proc gen_content(input: seq[inputLine]): string =
             POS: {value}b
           </span>
         </h2>
-        <p>
-          {desc}
-        </p>
         """
 
     of "proc":
       var name = l.value.split(" ")[0]
       var input = l.value.split(" ")[1]
       var output = l.value.split(" ")[2]
-      var desc = l.value.split(" ")[3..^1].join(" ")
-      
-      result &= &"""
-        <h1 id="{name}">
-          proc {className}{name}
-          <span class="small">
-            START: {input} RET: {output}
-          </span>
-        </h1>
-        <p>
-          {desc}
-        </p>
-        """
+     
+      if className != "":
+        result &= &"""
+          <h2 id="{name}">
+            proc {className}{name}
+            <span class="small">
+              START: {input} RET: {output}
+            </span>
+          </h2>
+          """
+      else:
+        result &= &"""
+          <h1 id="{name}">
+            proc {className}{name}
+            <span class="small">
+              START: {input} RET: {output}
+            </span>
+          </h1>
+          """
     else:
       quit l.value
 
