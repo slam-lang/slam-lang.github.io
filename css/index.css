@@ -53,6 +53,14 @@ img.logo {
   margin: auto;
 }
 
+.news {
+  margin-top: 5rem;
+  padding: 3rem;
+  max-width: 1000px;
+  margin: auto;
+  border-top: 3px solid #663931;
+}
+
 .content {
   padding: 3rem;
   max-width: 1000px;
@@ -147,4 +155,19 @@ h3 {
 
 p.desc {
   margin-top: 0;
+}
+
+.post-title {
+  text-align: center;
+}
+
+.post-desc {
+  text-indent: 40px;
+  font-size: 1.6rem;
+}
+
+.post-sign {
+  text-indent: 40px;
+  text-align: right;
+  font-size: 1.6rem;
 }

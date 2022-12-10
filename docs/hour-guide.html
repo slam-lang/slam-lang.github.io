@@ -35,7 +35,7 @@ inc stdlib.slm
 {This prints hello world}
 proc main 0 0
   "Hello World" {Push hello world onto the stack}
-  cstr.println {print the top of the stack}
+  (cstr.println) {print the top of the stack}
 
   ret
 end
@@ -48,14 +48,14 @@ be
 }
 
 4 3 +
-int.print
+(int.print)
 
 {
 subtraction has an order still, you need to put the
 2nd parameter second, 4 - 3 would be
 }
 4 3 -
-int.print
+(int.print)
 
 {
 slam by default has no division operation
@@ -64,8 +64,8 @@ remainder to the stack. Though there are shortcuts
 in stdlib.slm that allow you to / and % individually.
 }
 100 10 /%
-int.print
-int.print
+(int.print)
+(int.print)
 
 {
 this defines a proc named foo, it will
@@ -95,16 +95,6 @@ end
 {you can also do this on the same line}
 oper proc foo-op2 0 0
 
-  ret
-end
-
-{
-as of slam2, procs now are operational by default
-You can reverse a oper proc with the push keyword
-}
-
-push proc bar 0 0
-  
   ret
 end
 
@@ -165,8 +155,8 @@ class fooc of barc
 end
 
 {items in a class are prefixed with classname.}
-(fooc.name) cstr.println
-(barc.name) cstr.println</code></pre>
+(fooc.name) (cstr.println)
+(barc.name) (cstr.println)</code></pre>
     <h1>Intrinsics</h1>
     <pre><code class="language-slam">{
 Slam has functions that are built into the compiler
