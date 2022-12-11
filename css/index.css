@@ -88,6 +88,12 @@ h2 {
   color: #C33231;
 }
 
+@media (max-width: 767px) {
+  .hide {
+    display: none;  
+  }
+}
+
 .hcontainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
