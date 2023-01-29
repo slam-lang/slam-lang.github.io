@@ -35,7 +35,7 @@ inc stdlib.slm
 {This prints hello world}
 proc main 0 0
   "Hello World" {Push hello world onto the stack}
-  (cstr.println) {print the top of the stack}
+  cstr.println {print the top of the stack}
 
   ret
 end
@@ -48,14 +48,14 @@ be
 }
 
 4 3 +
-(int.print)
+int.print
 
 {
 subtraction has an order still, you need to put the
 2nd parameter second, 4 - 3 would be
 }
 4 3 -
-(int.print)
+int.print
 
 {
 slam by default has no division operation
@@ -64,8 +64,8 @@ remainder to the stack. Though there are shortcuts
 in stdlib.slm that allow you to / and % individually.
 }
 100 10 /%
-(int.print)
-(int.print)
+int.print
+int.print
 
 {
 this defines a proc named foo, it will
@@ -98,7 +98,13 @@ oper proc foo-op2 0 0
   ret
 end
 
-{you can call a proc by wrapping it in parentheses}
+{the inverse of a oper proc is a push proc}
+push proc foo2 0 0
+
+  ret
+end
+
+{you can call a push proc by wrapping it in parentheses}
 
 (foo)
             
@@ -106,30 +112,29 @@ end
 
 bar
 
-{
-A block is created by wrapping a sequence of
-operations in [], a block counts as one command.
-This is useful for if statements
-}
-[
-  (foo) bar
-]
-{
-due to limitations in the slam compiler,
-you cannot create a block inside a block.
-}
+{you can push the address of a oper proc by wraping it in parentheses}
+
+(bar) disc
+
+{you can push the address of a push proc by writing its name}
+
+foo disc
+
+{you can also call a proc on the stack with parentheses}
+
+foo ()
 
 {
 an if statement pops the last item on the stack
-if this item is 0 it skips the next command
+if this item is 0 it skips until a end is met
 }
 100 10 /
-10 == if [
+10 == if
   "10 / 100 is 10"
-]
+end
 
 {
-the class keyword can be used to create a class
+the class keyword can be used to create a struct
 }
 class barc
   proc name 0 1
