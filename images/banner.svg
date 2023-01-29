@@ -1,29 +1,5 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Webpage for slam">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slam Lang</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Square">
-    <link rel="stylesheet" href="css/index.css">
-  </head>
-  <body> 
-    <div class="nav">
-      <div class="nav-container">
-        <a class="nav-logo" href="/">
-          <img class="nav-logo" src="images/logo.png"></img>
-        </a>
-        <div class="nav-links">
-          <a href="/" class="hide">Home</a>
-          <a href="/docs">Docs</a>
-          <a href="http://github.com/slam-lang" class="hide">Github</a>
-        </div>
-      </div>
-    </div>
-    <div class="header">
-      <?xml version="1.0" encoding="UTF-8" ?>
-<svg version="1.1" width="80%" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg version="1.1" width="500" height="150" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
 <rect x="0" y="0" width="10" height="10" fill="#EEC39A" />
 <rect x="10" y="0" width="10" height="10" fill="#EEC39A" />
 <rect x="20" y="0" width="10" height="10" fill="#EEC39A" />
@@ -775,54 +751,3 @@
 <rect x="480" y="140" width="10" height="10" fill="#EEC39A" />
 <rect x="490" y="140" width="10" height="10" fill="#EEC39A" />
 </svg>
-    </div>
-    <div class="content">
-      <h1>
-        Slam - Stack oriented, Low level, Confusing.
-      </h1>
-      <h2>
-        Slam is a low level untyped programming language with object oriented capabilities. <br/>
-        It is designed to be similar to Porth, Nim, and C.
-      </h2>
-      <div class="warn">
-        Warning: Slam is designed to give you something to do, not something to use. <br/>
-        PLEASE DO NOT USE SLAM IN A PRODUCTION ENVIRONMENT!!!
-      </div>
-    </div>
-    <div class="news">
-      <h1>
-        News
-      </h1>
-      <h2 class="post-title">
-        Slam 0.3.0 - 1-29-2023
-      </h2>
-      <div class="post-desc">
-        Slam 0.3.0 is finally done, feel free to try it out. The biggest changes are related to the simulator which is now JIT compiled.
-        This is is a full rewrite, so all old bugs are fixed. I'm expecting theres new bugs I missed.
-
-        The plan for February is to finally start working out the documentation and standards for slam-stdlib.
-      </div>
-      <div class="post-sign">
-        - Prestosilver
-      </div>
-
-      <div class="post-div"></div>
-
-      <h2 class="post-title">
-        Now starting news - 12-10-2022
-      </h2>
-      <div class="post-desc">
-        I am going to start doing monthly updates from here on noting the changes in SLAM. Just for the 0 people who keep track.
-      </div>
-      <div class="post-desc">
-        The plan for January of 23 is to get slam 0.2.0 working. There are many bugs to work out, I am going to start listing them on gh when I get a chance, feel free to work on PRs. Moving on I would like to fix this page on mobile, we'll see if I have time.
-      </div>
-      <div class="post-desc">
-        I also have to fix the docs on this page, shouldnt be too difficult I just have to sweep the source for comments before definitions. The code will have to be commented aswell at a later time.
-      </div>
-      <div class="post-sign">
-        - Prestosilver
-      </div>
-    </div>
-  </body>
-</html>

@@ -23,7 +23,7 @@
     </div>
     
     <h1 class="title">
-      stdlib/os.slm
+      std/os.slm
     </h1>
     <div class="content">
       <div class="side hide">
@@ -31,8 +31,6 @@
         <ul>
       <li><a href="#sysc">sysc</a></li>
       <li><a href="#fm">fm</a></li>
-      <li><a href="#time">time</a></li>
-      <li><a href="#statresult">statresult</a></li>
       <li><a href="#os">os</a></li>
       <li><a href="#fork">os.fork</a></li>
       <li><a href="#execcmd">os.execcmd</a></li>
@@ -41,6 +39,9 @@
       <li><a href="#execcmdecholoud">os.execcmdecholoud</a></li>
       <li><a href="#args">os.args</a></li>
       <li><a href="#env">os.env</a></li>
+      <li><a href="#cwd">os.cwd</a></li>
+      <li><a href="#existsf">os.existsf</a></li>
+      <li><a href="#openf">os.openf</a></li>
   </ul>
       </div>
       <div class="docs">
@@ -50,120 +51,38 @@
             SIZE: 0b
           </span>
         </h1>
-                <h1 id="fm">
+                <p class="desc">
+        stores syscalls
+        </p>        <h1 id="fm">
           class fm
           <span class="small">
             SIZE: 0b
           </span>
         </h1>
-                <h1 id="time">
-          class time
+                <p class="desc">
+        stores file modes
+        </p>        <h2 id="READ">
+          const fm.READ
           <span class="small">
-            SIZE: 16b
-          </span>
-        </h1>
-                <h2 id="sec">
-          prop time.sec
-          <span class="small">
-            SIZE: 8b
-            POS: 0b
+            VALUE: 0b
           </span>
         </h2>
-                <h2 id="nsec">
-          prop time.nsec
+                <h2 id="WRITE">
+          const fm.WRITE
           <span class="small">
-            SIZE: 8b
-            POS: 8b
+            VALUE: 1b
           </span>
         </h2>
-                <h1 id="statresult">
-          class statresult
+                <h2 id="READWR">
+          const fm.READWR
           <span class="small">
-            SIZE: 144b
-          </span>
-        </h1>
-                <h2 id="dev">
-          prop statresult.dev
-          <span class="small">
-            SIZE: 8b
-            POS: 0b
+            VALUE: 2b
           </span>
         </h2>
-                <h2 id="ino">
-          prop statresult.ino
+                <h2 id="ACC">
+          const fm.ACC
           <span class="small">
-            SIZE: 8b
-            POS: 8b
-          </span>
-        </h2>
-                <h2 id="nlink">
-          prop statresult.nlink
-          <span class="small">
-            SIZE: 8b
-            POS: 16b
-          </span>
-        </h2>
-                <h2 id="mode">
-          prop statresult.mode
-          <span class="small">
-            SIZE: 4b
-            POS: 24b
-          </span>
-        </h2>
-                <h2 id="uid">
-          prop statresult.uid
-          <span class="small">
-            SIZE: 4b
-            POS: 28b
-          </span>
-        </h2>
-                <h2 id="gid">
-          prop statresult.gid
-          <span class="small">
-            SIZE: 4b
-            POS: 32b
-          </span>
-        </h2>
-                <h2 id="_">
-          prop statresult._
-          <span class="small">
-            SIZE: 4b
-            POS: 36b
-          </span>
-        </h2>
-                <h2 id="rdev">
-          prop statresult.rdev
-          <span class="small">
-            SIZE: 8b
-            POS: 40b
-          </span>
-        </h2>
-                <h2 id="size">
-          prop statresult.size
-          <span class="small">
-            SIZE: 8b
-            POS: 48b
-          </span>
-        </h2>
-                <h2 id="blksize">
-          prop statresult.blksize
-          <span class="small">
-            SIZE: 8b
-            POS: 56b
-          </span>
-        </h2>
-                <h2 id="blocks">
-          prop statresult.blocks
-          <span class="small">
-            SIZE: 8b
-            POS: 64b
-          </span>
-        </h2>
-                <h2 id="_">
-          prop statresult._
-          <span class="small">
-            SIZE: 24b
-            POS: 72b
+            VALUE: 3b
           </span>
         </h2>
                 <h1 id="os">
@@ -172,49 +91,107 @@
             SIZE: 0b
           </span>
         </h1>
-                  <h2 id="fork">
+                <p class="desc">
+        container for os related helper funcs
+        </p>          <h2 id="fork">
             proc os.fork
             <span class="small">
               START: 0 RET: 1
             </span>
           </h2>
-                    <h2 id="execcmd">
+          <h3>
+ _ =>  int[pid]</h3>
+        <p class="desc">
+        forks the process, see fork syscall for linux
+        </p>          <h2 id="execcmd">
             proc os.execcmd
             <span class="small">
               START: 1 RET: 0
             </span>
           </h2>
-                    <h2 id="execcmdloud">
+          <h3>
+ ptr[cstr array] =>  _</h3>
+        <p class="desc">
+        runs a command quietly
+        </p>          <h2 id="execcmdloud">
             proc os.execcmdloud
             <span class="small">
               START: 1 RET: 0
             </span>
           </h2>
-                    <h2 id="execcmdecho">
+          <h3>
+ ptr[cstr array] =>  _</h3>
+        <p class="desc">
+        runs a command
+        </p>          <h2 id="execcmdecho">
             proc os.execcmdecho
             <span class="small">
               START: 1 RET: 0
             </span>
           </h2>
-                    <h2 id="execcmdecholoud">
+          <h3>
+ ptr[cstr array] =>  _</h3>
+        <p class="desc">
+        runs a command quietly after echoing it
+        </p>          <h2 id="execcmdecholoud">
             proc os.execcmdecholoud
             <span class="small">
               START: 1 RET: 0
             </span>
           </h2>
-                    <h2 id="args">
+          <h3>
+ ptr[cstr array] =>  _</h3>
+        <p class="desc">
+        runs a command after echoing it
+        </p>          <h2 id="args">
             proc os.args
             <span class="small">
               START: 1 RET: 1
             </span>
           </h2>
-                    <h2 id="env">
+          <h3>
+ int[id] =>  ptr[cstr]</h3>
+        <p class="desc">
+        gets the argument from argv at index id
+        </p>          <h2 id="env">
             proc os.env
             <span class="small">
               START: 1 RET: 1
             </span>
           </h2>
-                </div>
+          <h3>
+ ptr[name] =>  ptr[value]</h3>
+        <p class="desc">
+        gets the environmental variable named name
+        </p>          <h2 id="cwd">
+            proc os.cwd
+            <span class="small">
+              START: 0 RET: 1
+            </span>
+          </h2>
+          <h3>
+ _ =>  ptr[value]</h3>
+        <p class="desc">
+        gets the current working directory
+        </p>          <h2 id="existsf">
+            proc os.existsf
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[path] =>  int[exists]</h3>
+        <p class="desc">
+        returns 1 if the file at path exists
+        </p>          <h2 id="openf">
+            proc os.openf
+            <span class="small">
+              START: 4 RET: 1
+            </span>
+          </h2>
+          <h3>
+ lol</h3>
+      </div>
     </div>
   </body>
 </html>

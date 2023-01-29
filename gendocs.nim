@@ -25,9 +25,9 @@ proc gen_header(title: string): string = &"""
           <img class="nav-logo" src="/images/logo.png"></img>
         </a>
         <div class="nav-links">
-          <a href="/">Home</a>
+          <a href="/" class="hide">Home</a>
           <a href="/docs">Docs</a>
-          <a href="http://github.com/slam-lang">Github</a>
+          <a href="http://github.com/slam-lang" class="hide">Github</a>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@ proc gen_header(title: string): string = &"""
       {title}
     </h1>
     <div class="content">
-      <div class="side">
+      <div class="side hide">
 """
 
 var classPos: int
@@ -77,6 +77,19 @@ proc gen_content(input: seq[inputLine]): string =
         <p class="desc">
         {l.value}
         </p>"""
+    
+    of "const":
+      var name = l.value.split(" ")[0]
+      var value = l.value.split(" ")[1]
+
+      result &= &"""
+        <h2 id="{name}">
+          const {className}{name}
+          <span class="small">
+            VALUE: {value}b
+          </span>
+        </h2>
+        """
 
     of "class":
       var name = l.value.split(" ")[0]
