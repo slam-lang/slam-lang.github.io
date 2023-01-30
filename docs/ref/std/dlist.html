@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Webpage for slam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slam Lang</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Square">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body> 
+    <div class="nav">
+      <div class="nav-container">
+        <a class="nav-logo" href="/">
+          <img class="nav-logo" src="/images/logo.png"></img>
+        </a>
+        <div class="nav-links">
+          <a href="/" class="hide">Home</a>
+          <a href="/docs">Docs</a>
+          <a href="http://github.com/slam-lang" class="hide">Github</a>
+        </div>
+      </div>
+    </div>
+    
+    <h1 class="title">
+      std/dlist.slm
+    </h1>
+    <div class="content">
+      <div class="side hide">
+        <h1>Contents</h1>
+        <ul>
+      <li><a href="#dlist">dlist</a></li>
+      <li><a href="#new">dlist.new</a></li>
+      <li><a href="#free">dlist.free</a></li>
+      <li><a href="#len">dlist.len</a></li>
+      <li><a href="#getptr">dlist.getptr</a></li>
+      <li><a href="#pop">dlist.pop</a></li>
+      <li><a href="#append">dlist.append</a></li>
+      <li><a href="#last">dlist.last</a></li>
+  </ul>
+      </div>
+      <div class="docs">
+        <h1 id="dlist">
+          class dlist
+          <span class="small">
+            SIZE: 24b
+          </span>
+        </h1>
+                <p class="desc">
+        Dynamic list, an expandable array.
+        </p>        <h2 id="max">
+          prop dlist.max
+          <span class="small">
+            SIZE: 8b
+            POS: 0b
+          </span>
+        </h2>
+                <p class="desc">
+        The available free elements in the list.
+        </p>        <h2 id="size">
+          prop dlist.size
+          <span class="small">
+            SIZE: 8b
+            POS: 8b
+          </span>
+        </h2>
+                <p class="desc">
+        The elements in the list.
+        </p>        <h2 id="elemsize">
+          prop dlist.elemsize
+          <span class="small">
+            SIZE: 8b
+            POS: 16b
+          </span>
+        </h2>
+                <p class="desc">
+        The size of an element in the list.
+        </p>        <h2 id="data">
+          prop dlist.data
+          <span class="small">
+            SIZE: 0b
+            POS: 24b
+          </span>
+        </h2>
+                <p class="desc">
+        The data for the list.
+        </p>        <h2 id="STEP">
+          const dlist.STEP
+          <span class="small">
+            VALUE: 16
+          </span>
+        </h2>
+                <p class="desc">
+        How much elememnts to allocate when a list needs to expand.
+        </p>          <h2 id="new">
+            proc dlist.new
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ int[elemsize] =>  ptr[dlist]</h3>
+        <p class="desc">
+        Creates a new dlist.
+        </p>          <h2 id="free">
+            proc dlist.free
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+          <h3>
+ ptr[dlist] =>  _</h3>
+        <p class="desc">
+        Frees a dlist from the heap.
+        </p>          <h2 id="len">
+            proc dlist.len
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[dlist] =>  int[length]</h3>
+        <p class="desc">
+        Gets the length of a dlist.
+        </p>          <h2 id="getptr">
+            proc dlist.getptr
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[dlist] int[idx] =>  ptr[element]</h3>
+        <p class="desc">
+        Gets the idx element of a dlist.
+        </p>          <h2 id="pop">
+            proc dlist.pop
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[dlist] =>  ptr[element]</h3>
+        <p class="desc">
+        Gets the last element of a dlist, and removes it.
+        </p>          <h2 id="append">
+            proc dlist.append
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[dlist] ptr[data] =>  ptr[dlist]</h3>
+        <p class="desc">
+        Adds a element to the end of a dlist, may reposition the dlist.
+        </p>          <h2 id="last">
+            proc dlist.last
+            <span class="small">
+              START: 1 RET: 2
+            </span>
+          </h2>
+          <h3>
+ ptr[dlist] =>  ptr[element]</h3>
+        <p class="desc">
+        Returns the last element in a dlist.
+        </p>      </div>
+    </div>
+  </body>
+</html>

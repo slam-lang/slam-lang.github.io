@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Webpage for slam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slam Lang</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Square">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body> 
+    <div class="nav">
+      <div class="nav-container">
+        <a class="nav-logo" href="/">
+          <img class="nav-logo" src="/images/logo.png"></img>
+        </a>
+        <div class="nav-links">
+          <a href="/" class="hide">Home</a>
+          <a href="/docs">Docs</a>
+          <a href="http://github.com/slam-lang" class="hide">Github</a>
+        </div>
+      </div>
+    </div>
+    
+    <h1 class="title">
+      std/heap.slm
+    </h1>
+    <div class="content">
+      <div class="side hide">
+        <h1>Contents</h1>
+        <ul>
+      <li><a href="#heapentry">heapentry</a></li>
+      <li><a href="#isentry">heapentry.isentry</a></li>
+      <li><a href="#setfree">heapentry.setfree</a></li>
+      <li><a href="#create">heapentry.create</a></li>
+      <li><a href="#heap">heap</a></li>
+      <li><a href="#newpage">heap.newpage</a></li>
+      <li><a href="#init">heap.init</a></li>
+      <li><a href="#empty">heap.empty</a></li>
+      <li><a href="#alloc">heap.alloc</a></li>
+      <li><a href="#zalloc">heap.zalloc</a></li>
+      <li><a href="#realloc">heap.realloc</a></li>
+      <li><a href="#free">heap.free</a></li>
+  </ul>
+      </div>
+      <div class="docs">
+        <h1 id="heapentry">
+          class heapentry
+          <span class="small">
+            SIZE: 17b
+          </span>
+        </h1>
+                <p class="desc">
+        A entry on the heap.
+        </p>        <h2 id="addr">
+          prop heapentry.addr
+          <span class="small">
+            SIZE: 8b
+            POS: 0b
+          </span>
+        </h2>
+                <p class="desc">
+        The address of the entry, this is to help with copying.
+        </p>        <h2 id="flags">
+          prop heapentry.flags
+          <span class="small">
+            SIZE: 1b
+            POS: 8b
+          </span>
+        </h2>
+                <p class="desc">
+        Some flags for the entry, the last bit is 0 if the entry is free.
+        </p>        <h2 id="size">
+          prop heapentry.size
+          <span class="small">
+            SIZE: 8b
+            POS: 9b
+          </span>
+        </h2>
+                <p class="desc">
+        The requested size of the entry, the entry may be bigger though.
+        </p>        <h2 id="data">
+          prop heapentry.data
+          <span class="small">
+            SIZE: 0b
+            POS: 17b
+          </span>
+        </h2>
+                <p class="desc">
+        The data for the entry, atleast size bytes.
+        </p>          <h2 id="isentry">
+            proc heapentry.isentry
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[entry] =>  int[valid]</h3>
+        <p class="desc">
+        Returns bool.true if the address is of a valid entry.
+        </p>          <h2 id="setfree">
+            proc heapentry.setfree
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+          <h3>
+ ptr[entry] =>  _</h3>
+        <p class="desc">
+        Sets the free flag of an entry.
+        </p>          <h2 id="create">
+            proc heapentry.create
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+          <h3>
+ ptr[entry] =>  _</h3>
+        <p class="desc">
+        Makes an entry valid.
+        </p>        <h1 id="heap">
+          class heap
+          <span class="small">
+            SIZE: 0b
+          </span>
+        </h1>
+                <p class="desc">
+        Manages the heap.
+        </p>        <h2 id="BRK">
+          const heap.BRK
+          <span class="small">
+            VALUE: 12
+          </span>
+        </h2>
+                <p class="desc">
+        Just a break syscall, will be reloacated to OS.
+        </p>        <h2 id="PAGE_SIZE">
+          const heap.PAGE_SIZE
+          <span class="small">
+            VALUE: 64000
+          </span>
+        </h2>
+                <p class="desc">
+        The size of a page on the heap.
+        </p>        <h2 id="STEP_SIZE">
+          const heap.STEP_SIZE
+          <span class="small">
+            VALUE: 64
+          </span>
+        </h2>
+                <p class="desc">
+        The minimum size of a heap entry.
+        </p>        <h2 id="startaddr">
+          var heap.startaddr
+          <span class="small">
+            SIZE: 8b
+          </span>
+        </h2>
+                <p class="desc">
+        The start of the heap.
+        </p>        <h2 id="endaddr">
+          var heap.endaddr
+          <span class="small">
+            SIZE: 8b
+          </span>
+        </h2>
+                <p class="desc">
+        The end of the heap.
+        </p>        <h2 id="allocstart">
+          var heap.allocstart
+          <span class="small">
+            SIZE: 8b
+          </span>
+        </h2>
+                <p class="desc">
+        Where to start allocating on the heap.
+        </p>        <h2 id="isinit">
+          var heap.isinit
+          <span class="small">
+            SIZE: 1b
+          </span>
+        </h2>
+                <p class="desc">
+        Is bool.true if the heap is init.
+        </p>          <h2 id="newpage">
+            proc heap.newpage
+            <span class="small">
+              START: 0 RET: 0
+            </span>
+          </h2>
+                    <h2 id="init">
+            proc heap.init
+            <span class="small">
+              START: 0 RET: 0
+            </span>
+          </h2>
+                    <h2 id="empty">
+            proc heap.empty
+            <span class="small">
+              START: 0 RET: 1
+            </span>
+          </h2>
+                    <h2 id="alloc">
+            proc heap.alloc
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                    <h2 id="zalloc">
+            proc heap.zalloc
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+                    <h2 id="realloc">
+            proc heap.realloc
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+                    <h2 id="free">
+            proc heap.free
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+                </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Webpage for slam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slam Lang</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Square">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body> 
+    <div class="nav">
+      <div class="nav-container">
+        <a class="nav-logo" href="/">
+          <img class="nav-logo" src="/images/logo.png"></img>
+        </a>
+        <div class="nav-links">
+          <a href="/" class="hide">Home</a>
+          <a href="/docs">Docs</a>
+          <a href="http://github.com/slam-lang" class="hide">Github</a>
+        </div>
+      </div>
+    </div>
+    
+    <h1 class="title">
+      std/cstr.slm
+    </h1>
+    <div class="content">
+      <div class="side hide">
+        <h1>Contents</h1>
+        <ul>
+      <li><a href="#cstr">cstr</a></li>
+      <li><a href="#len">cstr.len</a></li>
+      <li><a href="#print">cstr.print</a></li>
+      <li><a href="#println">cstr.println</a></li>
+      <li><a href="#cr">cstr.cr</a></li>
+      <li><a href="#eq">cstr.eq</a></li>
+      <li><a href="#cpy">cstr.cpy</a></li>
+      <li><a href="#last">cstr.last</a></li>
+      <li><a href="#clear">cstr.clear</a></li>
+      <li><a href="#cat">cstr.cat</a></li>
+      <li><a href="#isnum">cstr.isnum</a></li>
+      <li><a href="#int">cstr.int</a></li>
+      <li><a href="#split">cstr.split</a></li>
+      <li><a href="#iter">cstr.iter</a></li>
+  </ul>
+      </div>
+      <div class="docs">
+        <h1 id="cstr">
+          class cstr
+          <span class="small">
+            SIZE: 0b
+          </span>
+        </h1>
+                <p class="desc">
+        Stores a cstring, null terminated char array.
+        </p>          <h2 id="len">
+            proc cstr.len
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[cstr] =>  int[length]</h3>
+        <p class="desc">
+        Gets the length of a cstring.
+        </p>          <h2 id="print">
+            proc cstr.print
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+          <h3>
+ ptr[cstr] =>  _</h3>
+        <p class="desc">
+        Prints a cstring to the console.
+        </p>          <h2 id="println">
+            proc cstr.println
+            <span class="small">
+              START: 1 RET: 0
+            </span>
+          </h2>
+          <h3>
+ ptr[cstr] =>  _</h3>
+        <p class="desc">
+        Prints a cstring to the console followed by a new line.
+        </p>          <h2 id="cr">
+            proc cstr.cr
+            <span class="small">
+              START: 0 RET: 0
+            </span>
+          </h2>
+          <h3>
+ _ =>  _</h3>
+        <p class="desc">
+        Prints a new line to the console.
+        </p>          <h2 id="eq">
+            proc cstr.eq
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[cstr] ptr[cstr] =>  int[equal]</h3>
+        <p class="desc">
+        Compares 2 cstrings, returns bool.true if they are equal.
+        </p>          <h2 id="cpy">
+            proc cstr.cpy
+            <span class="small">
+              START: 2 RET: 2
+            </span>
+          </h2>
+          <h3>
+ ptr[dest] ptr[src] =>  ptr[dest] ptr[src]</h3>
+        <p class="desc">
+        Copies src to desc and appends a null terminator.
+        </p>          <h2 id="last">
+            proc cstr.last
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[cstr] =>  ptr[last]</h3>
+        <p class="desc">
+        Gets the last char in the cstring.
+        </p>          <h2 id="clear">
+            proc cstr.clear
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[cstr] =>  ptr[cstr]</h3>
+        <p class="desc">
+        Fills a cstring with zeros.
+        </p>          <h2 id="cat">
+            proc cstr.cat
+            <span class="small">
+              START: 2 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[dest] ptr[src] =>  ptr[dest]</h3>
+        <p class="desc">
+        Appends src to dest.
+        </p>          <h2 id="isnum">
+            proc cstr.isnum
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[cstr] =>  int[number?]</h3>
+        <p class="desc">
+        Returns bool.true if a cstr is a number.
+        </p>          <h2 id="int">
+            proc cstr.int
+            <span class="small">
+              START: 1 RET: 1
+            </span>
+          </h2>
+          <h3>
+ ptr[cstr] =>  int[value]</h3>
+        <p class="desc">
+        Converts a cstring to a number.
+        </p>          <h2 id="split">
+            proc cstr.split
+            <span class="small">
+              START: 3 RET: 2
+            </span>
+          </h2>
+          <h3>
+ ptr[src] int[delim] ptr[dest] =>  ptr[start] ptr[end]</h3>
+        <p class="desc">
+        Splits src at delim, destroys src.
+        </p>          <h2 id="iter">
+            proc cstr.iter
+            <span class="small">
+              START: 1 RET: 2
+            </span>
+          </h2>
+          <h3>
+ ptr[self] =>  ptr[self] ptr[next]</h3>
+        <p class="desc">
+        iterates through a cstr.
+        </p>      </div>
+    </div>
+  </body>
+</html>

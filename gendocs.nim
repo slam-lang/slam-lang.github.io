@@ -78,6 +78,20 @@ proc gen_content(input: seq[inputLine]): string =
         {l.value}
         </p>"""
     
+    of "var":
+      var name = l.value.split(" ")[0]
+      var value = l.value.split(" ")[1]
+
+      result &= &"""
+        <h2 id="{name}">
+          var {className}{name}
+          <span class="small">
+            SIZE: {value}b
+          </span>
+        </h2>
+        """
+
+    
     of "const":
       var name = l.value.split(" ")[0]
       var value = l.value.split(" ")[1]
@@ -86,7 +100,7 @@ proc gen_content(input: seq[inputLine]): string =
         <h2 id="{name}">
           const {className}{name}
           <span class="small">
-            VALUE: {value}b
+            VALUE: {value}
           </span>
         </h2>
         """
