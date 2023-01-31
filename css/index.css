@@ -148,6 +148,8 @@ pre {
   border-radius: 1rem;
   padding: 1rem;
   overflow: scroll;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 h3 {
